@@ -1,37 +1,37 @@
 # sakura-prj
 
-A simple Unity 2D grid-based simulation prototype with movable units and obstacle collision.
+一个简单的 Unity 2D 网格模拟原型，包含可移动单位与障碍物碰撞限制。
 
-## Features
-- Grid-based 2D environment (configurable width/height).
-- Multiple units spawned on grid cells.
-- Move selected unit one tile at a time with `WASD` or arrow keys.
-- Switch active unit with `Tab`.
-- Basic collision detection:
-  - Units cannot move outside the grid.
-  - Units cannot move into obstacle cells.
-  - Units cannot move through or overlap other units.
+## 功能特性
+- 基于网格的 2D 场景（可配置宽度和高度）。
+- 在网格格子中生成多个单位。
+- 使用 `WASD` 或方向键让当前选中单位每次移动一格。
+- 使用 `Tab` 切换当前可控制单位。
+- 基础碰撞检测：
+  - 单位不能移动到网格外。
+  - 单位不能移动到障碍物所在格子。
+  - 单位不能穿过或重叠到其他单位。
 
-## Unity Setup (Built-in 2D tools)
-1. Create a new **2D Core** Unity project.
-2. Copy `Assets/Scripts/*.cs` from this repository into your project's `Assets/Scripts` folder.
-3. Create three simple prefabs using SpriteRenderer (square sprite is enough):
+## Unity 搭建步骤（使用内置 2D 工具）
+1. 创建一个新的 **2D Core** Unity 项目。
+2. 将本仓库中的 `Assets/Scripts/*.cs` 复制到你的项目 `Assets/Scripts` 目录。
+3. 使用 SpriteRenderer 创建 3 个简单预制体（方块精灵即可）：
    - `FloorPrefab`
    - `ObstaclePrefab`
-   - `UnitPrefab` (attach `GridUnit` component)
-4. In your scene:
-   - Create an empty GameObject `GridGameManager`, attach `GridGameManager.cs`.
-   - Assign the three prefabs in inspector fields (`Floor Prefab`, `Obstacle Prefab`, `Unit Prefab`).
-   - Optionally edit obstacle and unit spawn coordinates from inspector lists.
-   - Create another empty GameObject `InputController`, attach `UnitInputController.cs`.
-   - Drag the `GridGameManager` object into the `Game Manager` field on `UnitInputController`.
-5. Press Play.
+   - `UnitPrefab`（挂载 `GridUnit` 组件）
+4. 在场景中：
+   - 创建空物体 `GridGameManager`，挂载 `GridGameManager.cs`。
+   - 在 Inspector 中赋值 3 个预制体字段（`Floor Prefab`、`Obstacle Prefab`、`Unit Prefab`）。
+   - 可按需要在 Inspector 中修改障碍物与单位出生点坐标列表。
+   - 再创建空物体 `InputController`，挂载 `UnitInputController.cs`。
+   - 将 `GridGameManager` 物体拖到 `UnitInputController` 的 `Game Manager` 字段。
+5. 点击 Play 运行。
 
-## Controls
-- Move selected unit: `W`, `A`, `S`, `D` or arrow keys.
-- Cycle selected unit: `Tab`.
+## 操作方式
+- 移动当前选中单位：`W`、`A`、`S`、`D` 或方向键。
+- 切换选中单位：`Tab`。
 
-## Scripts
-- `Assets/Scripts/GridGameManager.cs`: builds the grid, places obstacles, spawns units, and validates movement.
-- `Assets/Scripts/GridUnit.cs`: stores unit grid position and visual selected state.
-- `Assets/Scripts/UnitInputController.cs`: handles keyboard input and selected-unit switching.
+## 脚本说明
+- `Assets/Scripts/GridGameManager.cs`：构建网格、放置障碍、生成单位并校验移动合法性。
+- `Assets/Scripts/GridUnit.cs`：保存单位网格坐标并控制选中状态显示。
+- `Assets/Scripts/UnitInputController.cs`：处理键盘输入并切换当前控制单位。

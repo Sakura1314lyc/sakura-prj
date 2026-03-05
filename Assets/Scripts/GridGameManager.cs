@@ -3,17 +3,17 @@ using UnityEngine;
 
 public class GridGameManager : MonoBehaviour
 {
-    [Header("Grid")]
+    [Header("网格")]
     [SerializeField] private int width = 12;
     [SerializeField] private int height = 8;
     [SerializeField] private float cellSize = 1f;
 
-    [Header("Prefabs")]
+    [Header("预制体")]
     [SerializeField] private GameObject floorPrefab;
     [SerializeField] private GameObject obstaclePrefab;
     [SerializeField] private GridUnit unitPrefab;
 
-    [Header("Layout")]
+    [Header("布局")]
     [SerializeField] private List<Vector2Int> obstaclePositions = new()
     {
         new Vector2Int(3, 2),
@@ -46,7 +46,7 @@ public class GridGameManager : MonoBehaviour
     {
         if (floorPrefab == null)
         {
-            Debug.LogWarning("Floor prefab is missing.");
+            Debug.LogWarning("未设置地板预制体。");
             return;
         }
 
@@ -79,7 +79,7 @@ public class GridGameManager : MonoBehaviour
     {
         if (unitPrefab == null)
         {
-            Debug.LogError("Unit prefab is missing.");
+            Debug.LogError("未设置单位预制体。");
             return;
         }
 
@@ -87,7 +87,7 @@ public class GridGameManager : MonoBehaviour
         {
             if (!IsCellWalkable(spawnCell))
             {
-                Debug.LogWarning($"Cannot spawn unit at {spawnCell}. Cell is blocked or outside the grid.");
+                Debug.LogWarning($"无法在 {spawnCell} 生成单位：该格子被阻挡或超出网格范围。");
                 continue;
             }
 
