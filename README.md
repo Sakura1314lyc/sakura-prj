@@ -1,5 +1,6 @@
 # sakura-prj
 
+
 一个简单的 Unity 2D 网格模拟原型，包含可移动单位与障碍物碰撞限制。
 
 ## 功能特性
@@ -35,3 +36,6 @@
 - `Assets/Scripts/GridGameManager.cs`：构建网格、放置障碍、生成单位并校验移动合法性。
 - `Assets/Scripts/GridUnit.cs`：保存单位网格坐标并控制选中状态显示。
 - `Assets/Scripts/UnitInputController.cs`：处理键盘输入并切换当前控制单位。
+=======
+基于csharp和unity开发的二次元模拟类小游戏
+
